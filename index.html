@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XEN+ — Télécharger des vidéos TikTok</title>
+<meta name="description" content="Colle un lien TikTok et récupère le fichier vidéo sans filigrane, ou l'audio seul.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="glow" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <a href="/" class="logo">XEN<span>+</span></a>
+    <nav>
+      <a href="#historique">Historique</a>
+      <a href="/privacy.html">Confidentialité</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Colle un lien TikTok, récupère le fichier.</h1>
+      <p>Le fichier vient directement du lien que tu fournis, en MP4 sans le filigrane TikTok. L'audio peut être extrait séparément.</p>
+
+      <form id="form" class="glass box" autocomplete="off">
+        <input id="url" type="url" name="url" placeholder="https://www.tiktok.com/@compte/video/..." aria-label="Lien TikTok" required>
+        <button type="submit" class="btn" id="submitBtn">Récupérer</button>
+      </form>
+
+      <p class="hint" id="hint"></p>
+
+      <div class="result glass" id="result" hidden>
+        <div class="result-media">
+          <video id="resultVideo" controls playsinline></video>
+        </div>
+        <div class="result-info">
+          <p class="result-title" id="resultTitle">—</p>
+          <p class="result-author" id="resultAuthor"></p>
+          <div class="result-actions">
+            <a id="downloadVideo" class="btn" download target="_blank" rel="noopener">Télécharger la vidéo</a>
+            <a id="downloadAudio" class="btn btn-ghost" download target="_blank" rel="noopener" hidden>Extraire l'audio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot wrap" id="ad-slot-top" data-ad-placeholder="true">
+    <span>Emplacement publicitaire</span>
+  </div>
+
+  <section id="comment">
+    <div class="wrap">
+      <h2>Trois étapes</h2>
+      <div class="steps">
+        <div class="step glass"><span class="n">1</span><p><strong>Copie</strong> le lien de la vidéo depuis l'appli TikTok.</p></div>
+        <div class="step glass"><span class="n">2</span><p><strong>Colle</strong>-le dans le champ ci-dessus.</p></div>
+        <div class="step glass"><span class="n">3</span><p><strong>Récupère</strong> le fichier, prêt à enregistrer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Ce que le site fait</h2>
+      <div class="feat-grid">
+        <div class="feat glass"><h3>Sans filigrane</h3><p>La vidéo est servie dans sa version sans le logo TikTok superposé.</p></div>
+        <div class="feat glass"><h3>Audio seul</h3><p>Extraction de la piste audio quand la source la fournit.</p></div>
+        <div class="feat glass"><h3>Aucun compte</h3><p>Rien n'est stocké côté serveur, l'historique reste sur cet appareil.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="historique">
+    <div class="wrap">
+      <div class="hist-head">
+        <h2>Historique</h2>
+        <button id="clearHistory" class="btn-text">Tout effacer</button>
+      </div>
+      <div id="historyList" class="hist-list"></div>
+      <p id="historyEmpty" class="hint">Rien pour l'instant. Les vidéos récupérées apparaissent ici, sur cet appareil uniquement.</p>
+    </div>
+  </section>
+
+  <div class="ad-slot wrap" id="ad-slot-bottom" data-ad-placeholder="true">
+    <span>Emplacement publicitaire</span>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 XEN+</p>
+    <div>
+      <a href="/privacy.html">Politique de confidentialité</a>
+      <a href="/terms.html">CGU</a>
+    </div>
+  </div>
+</footer>
+
+<div class="bottom-bar glass" id="bottomBar">
+  <div class="wrap bottom-bar-inner">
+    <span>Un nouveau lien à récupérer ?</span>
+    <button type="button" class="btn" id="bottomBarBtn">Coller un lien</button>
+  </div>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
